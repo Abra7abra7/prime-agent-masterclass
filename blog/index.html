@@ -169,41 +169,6 @@ document.addEventListener('click', function(e) {
   }
 });
 </script>
-</head>
-
-
-
-  <style>
-    /* Mobile navigation */
-    .nav-links { display: flex; flex-wrap: wrap; gap: 20px; }
-    .nav-links a { padding: 6px 0; white-space: nowrap; }
-    .nav-toggle { display: none; }
-    @media (max-width: 639px) {
-      .nav-toggle { display: block; }
-      .nav-links { display: none; flex-direction: column; width: 100%; margin-top: 10px; }
-      .nav-links.open { display: flex; }
-      .nav-links a { margin-right: 0 !important; margin-left: 0 !important; padding: 8px 0; border-top: 1px solid rgba(205,127,50,0.1); }
-      nav .container { display: flex; flex-wrap: wrap; align-items: center; }
-    }
-  
-    nav a:hover { color: var(--bronze) !important; opacity: 0.8; }
-    .pricing-card:hover { border-color: var(--bronze); transform: translateY(-2px); }
-    .module-card:hover { border-color: var(--bronze); }
-    .feature-card:hover { border-color: var(--bronze); transform: translateY(-2px); }
-    article:hover { border-color: var(--bronze); }
-    details:hover { border-color: var(--bronze); }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-    }
-    
-  <script>
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('.nav-toggle') && !e.target.closest('.nav-links')) {
-        var nav = document.querySelector('.nav-links');
-        if (nav) nav.classList.remove('open');
-      }
-    });
-  </script>
 <body>
 <nav style="padding: 14px 0; border-bottom: 1px solid rgba(205,127,50,0.15);">
   <div class="container">
