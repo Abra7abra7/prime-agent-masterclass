@@ -20,6 +20,10 @@
     {
       "src": "*/*.html",
       "use": "@vercel/static"
+    },
+    {
+      "src": "en/**/*.html",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -34,6 +38,34 @@
     {
       "src": "/(.*)\\.svg",
       "dest": "/$1.svg"
+    },
+    {
+      "src": "/en",
+      "dest": "/en/index.html"
+    },
+    {
+      "src": "/en/",
+      "dest": "/en/index.html"
+    },
+    {
+      "src": "/en/kurz",
+      "dest": "/en/kurz/index.html"
+    },
+    {
+      "src": "/en/o-nas",
+      "dest": "/en/o-nas/index.html"
+    },
+    {
+      "src": "/en/faq",
+      "dest": "/en/faq/index.html"
+    },
+    {
+      "src": "/en/blog",
+      "dest": "/en/blog/index.html"
+    },
+    {
+      "src": "/en/affiliate",
+      "dest": "/en/affiliate/index.html"
     },
     {
       "src": "/kurz",
