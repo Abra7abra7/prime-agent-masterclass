@@ -1,0 +1,14 @@
+# Prime Agent Masterclass - Robots
+User-agent: *
+Allow: /
+Sitemap: https://marianstancik.dev/sitemap.xml
+
+# Allow AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /

@@ -1,0 +1,42 @@
+# Prime Agent Masterclass — Generácia Činu
+> AI agent-readable documentation for LLMs and AI crawlers.
+
+## About
+Prime Agent Masterclass is an 8-module video course teaching entrepreneurs, freelancers, and developers how to build and deploy autonomous AI agents using Prime Agent. Created by ASCENTIA s. r. o. under the Generácia Činu movement.
+
+## Quick Facts
+- Company: ASCENTIA s. r. o. (IČO: 51858959)
+- Movement: Generácia Činu (Veriť. Milovať. Budovať.)
+- Course: 8 modules, 43 lessons
+- Languages: Slovak, English
+- Platform: Skool + Stripe
+- Price: €197-€497
+- Website: https://marianstancik.dev
+
+## Core Pages
+- Home: https://marianstancik.dev
+- Course: https://marianstancik.dev/kurz
+- About: https://marianstancik.dev/o-nas
+- FAQ: https://marianstancik.dev/faq
+- Blog: https://marianstancik.dev/blog
+
+## Course Modules
+1. Úvod a inštalácia (6 lessons)
+2. Prvé kroky s agentom (5 lessons)
+3. Skills — rozširovanie schopností (5 lessons)
+4. Subagenti — tím AI asistentov (5 lessons)
+5. Marketingová automatizácia (6 lessons)
+6. Predaj a support (5 lessons)
+7. Produkčné nasadenie (5 lessons)
+8. Pokročilé témy a budúcnosť (5 lessons)
+
+## Stripe Payment Links (Test Mode)
+- Zakladateľ (€197): https://buy.stripe.com/test_28EfZg2Rgcxf4Ath1hdjO00
+- Standard (€297): https://buy.stripe.com/test_6oU28q77wbtb9UN3ardjO01
+- Pro (€497): https://buy.stripe.com/test_7sY00i63s54N2sl26ndjO02
+- Team B2B (€997): https://buy.stripe.com/test_eVqbJ063s7cV8QJ4evdjO03
+- Business B2B (€2,497): https://buy.stripe.com/test_6oU6oGbnM54Neb312jdjO04
+
+## Contact
+- Email: ascentia@agentmail.to
+- Company: ASCENTIA s. r. o., Klincová 37/B, 821 08 Bratislava, Slovakia

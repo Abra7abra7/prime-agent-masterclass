@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="300" height="80">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A1628"/>
+      <stop offset="100%" style="stop-color:#002147"/>
+    </linearGradient>
+    <linearGradient id="bronze" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#CD7F32"/>
+      <stop offset="100%" style="stop-color:#E8A54A"/>
+    </linearGradient>
+  </defs>
+  <!-- Background rounded rect -->
+  <rect x="0" y="5" width="80" height="70" rx="8" fill="url(#bg)" stroke="#CD7F32" stroke-width="1"/>
+  <!-- Lipový list -->
+  <g transform="translate(40, 63)">
+    <path d="M0,0 C-6,-10 -15,-20 -18,-27 C-20,-34 -12,-38 -6,-32 C-3,-29 0,-27 0,-27 C0,-27 3,-29 6,-32 C12,-38 20,-34 18,-27 C15,-20 6,-10 0,0Z" fill="url(#bronze)"/>
+    <line x1="0" y1="0" x2="0" y2="-27" stroke="#CD7F32" stroke-width="0.5" opacity="0.6"/>
+  </g>
+  <!-- Krídla -->
+  <g transform="translate(40, 48)">
+    <path d="M0,0 C-5,-7 -18,-17 -36,-20 C-30,-14 -24,-9 -12,-5 L-3,-3 L0,0Z" fill="url(#bronze)" opacity="0.85"/>
+    <path d="M0,0 C5,-7 18,-17 36,-20 C30,-14 24,-9 12,-5 L3,-3 L0,0Z" fill="url(#bronze)" opacity="0.85"/>
+  </g>
+  <!-- Šíp -->
+  <polygon points="40,45 37,30 40,24 43,30" fill="url(#bronze)" opacity="0.9"/>
+  <!-- Tri hviezdy -->
+  <g transform="translate(40, 16)">
+    <polygon points="0,-10 2,-3 9,-3 4,1 5,8 0,4 -5,8 -4,1 -9,-3 -2,-3" fill="#FFFFFF"/>
+    <polygon points="-12,18 -10,22 -5,22 -9,25 -8,30 -12,27 -16,30 -15,25 -19,22 -14,22" fill="#FFFFFF" opacity="0.85"/>
+    <polygon points="12,18 14,22 19,22 15,25 16,30 12,27 8,30 9,25 5,22 10,22" fill="#FFFFFF" opacity="0.85"/>
+  </g>
+  <!-- Text -->
+  <text x="100" y="35" font-family="'Inter', sans-serif" font-size="18" font-weight="800" fill="#FFFFFF" letter-spacing="2">GENERÁCIA ČINU</text>
+  <text x="100" y="55" font-family="'Inter', sans-serif" font-size="10" font-weight="300" fill="#CD7F32" letter-spacing="4" font-style="italic">Veriť · Milovať · Budovať</text>
+</svg>

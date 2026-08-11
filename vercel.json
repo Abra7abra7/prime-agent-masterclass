@@ -1,0 +1,63 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.txt",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.xml",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.svg",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*/*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)\\.txt",
+      "dest": "/$1.txt"
+    },
+    {
+      "src": "/(.*)\\.xml",
+      "dest": "/$1.xml"
+    },
+    {
+      "src": "/(.*)\\.svg",
+      "dest": "/$1.svg"
+    },
+    {
+      "src": "/kurz",
+      "dest": "/kurz/index.html"
+    },
+    {
+      "src": "/o-nas",
+      "dest": "/o-nas/index.html"
+    },
+    {
+      "src": "/faq",
+      "dest": "/faq/index.html"
+    },
+    {
+      "src": "/blog",
+      "dest": "/blog/index.html"
+    },
+    {
+      "src": "/affiliate",
+      "dest": "/affiliate/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
