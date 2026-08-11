@@ -48,10 +48,6 @@
   ],
   "routes": [
     {
-      "src": "^/(.*)$",
-      "dest": "/$1"
-    },
-    {
       "src": "/en/privacy",
       "dest": "/en/privacy/index.html"
     },
@@ -154,6 +150,10 @@
     },
     {
       "src": "/public/(.*)",
+      "dest": "/$1"
+    },
+    {
+      "src": "^/(.*)$",
       "dest": "/$1"
     },
     {
