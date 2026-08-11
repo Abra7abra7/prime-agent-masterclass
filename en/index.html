@@ -65,10 +65,7 @@ document.addEventListener('click', function(e) {
     var nav = document.querySelector('.nav-links');
     if (nav) nav.classList.remove('open');
   }
-});
-// Language detection
-(function() {
-  if (sessionStorage.getItem('lang')) return; // manual override
+});) return; // manual override
   var lang = navigator.language || navigator.userLanguage;
   if (lang && lang.startsWith('sk') && !window.location.pathname.startsWith('/sk')) {
     window.location.href = '/sk' + window.location.pathname;
