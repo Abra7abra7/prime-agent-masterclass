@@ -48,6 +48,10 @@
   ],
   "routes": [
     {
+      "src": "^/(.*)$",
+      "dest": "/$1"
+    },
+    {
       "src": "/en/privacy",
       "dest": "/en/privacy/index.html"
     },
@@ -193,5 +197,7 @@
         }
       ]
     }
-  ]
+  ],
+  "buildCommand": null,
+  "outputDirectory": null
 }
