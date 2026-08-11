@@ -15,54 +15,11 @@
 
 
 
-<script>
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.nav-toggle') && !e.target.closest('.nav-links')) {
-    var nav = document.querySelector('.nav-links');
-    if (nav) nav.classList.remove('open');
-  }
-});
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Prime Agent Masterclass",
-  "description": "8-modulový video kurz na tvorbu AI agentov s Prime Agentom",
-  "brand": {"@type": "Brand","name": "Agent Guild"},
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "197",
-    "highPrice": "497",
-    "priceCurrency": "EUR",
-    "availability": "https://schema.org/InStock"
-  }
-}
-</script>
-<script>
-(function() {
-  if (sessionStorage.getItem('lang')) return;
-  var lang = navigator.language || navigator.userLanguage;
-  var path = window.location.pathname;
 
-  // Redirect /sk/ paths to root
-  if (path.startsWith('/sk/') || path === '/sk') {
-    window.location.href = path.replace('/sk', '') || '/';
-    return;
-  }
 
-  // Redirect English users to /en/
-  var enLangs = ['en', 'en-US', 'en-GB', 'en-AU', 'en-CA', 'en-IN', 'en-PH', 'en-SG'];
-  var skLangs = ['sk', 'sk-SK', 'cs', 'cs-CZ'];
 
-  if (enLangs.includes(lang) && !path.startsWith('/en')) {
-    window.location.href = '/en' + path;
-  } else if (skLangs.includes(lang) && path.startsWith('/en')) {
-    window.location.href = path.replace('/en', '') || '/';
-  }
-})();
-</script>
   <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
 </head>
 <body>
 

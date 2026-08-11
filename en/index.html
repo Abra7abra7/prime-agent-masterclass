@@ -10,31 +10,10 @@
 
 
 
-<script>
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.nav-toggle') && !e.target.closest('.nav-links')) {
-    var nav = document.querySelector('.nav-links');
-    if (nav) nav.classList.remove('open');
-  }
-});) return; // manual override
-  var lang = navigator.language || navigator.userLanguage;
-  if (lang && lang.startsWith('sk') && !window.location.pathname.startsWith('/sk')) {
-    window.location.href = '/sk' + window.location.pathname;
-  }
-})();
-</script>
-<script>
-(function() {
-  if (sessionStorage.getItem('lang')) return;
-  var lang = navigator.language || navigator.userLanguage;
-  var path = window.location.pathname;
-  var skLangs = ['sk', 'sk-SK', 'cs', 'cs-CZ'];
-  if (skLangs.includes(lang) && path.startsWith('/en')) {
-    window.location.href = path.replace('/en', '') || '/';
-  }
-})();
-</script>
+
+
   <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
 </head>
 <body>
 <nav>
