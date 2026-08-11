@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<!-- duration: 55s -->
+<!-- note: TUI rozhranie s header badgemi, chatom a footer klávesami -->
+<title>L4 F2 – TUI rozhranie</title>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+    background: #0d1117;
+    color: #c9d1d9;
+    width: 1920px; height: 1080px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+}
+
+
+.tui-wrapper { width:1500px; background:#0d1117; border:2px solid #30363d; border-radius:14px; overflow:hidden; font-family:'SF Mono',monospace; }
+.tui-header { display:flex; gap:10px; padding:12px 20px; background:#161b22; border-bottom:1px solid #30363d; }
+.tui-badge { padding:4px 12px; border-radius:6px; font-size:14px; font-weight:600; }
+.tui-badge.provider { background:rgba(31,111,235,0.2); color:#58a6ff; border:1px solid #1f6feb; }
+.tui-badge.model { background:rgba(63,185,80,0.2); color:#3fb950; border:1px solid #238636; }
+.tui-badge.thinking { background:rgba(210,153,29,0.2); color:#d2991d; border:1px solid #9e6a03; }
+.tui-badge.ws { background:rgba(139,148,158,0.15); color:#8b949e; border:1px solid #30363d; margin-left:auto; }
+.tui-chat { padding:32px; min-height:500px; display:flex; flex-direction:column; gap:20px; }
+.tui-msg { padding:14px 18px; border-radius:8px; font-size:18px; line-height:1.5; max-width:85%; }
+.tui-msg.agent { background:#21262d; border:1px solid #30363d; align-self:flex-start; color:#c9d1d9; }
+.tui-msg.user { background:#0d419d; align-self:flex-end; color:#fff; }
+.role { font-weight:700; }
+.cursor-blink { color:#58a6ff; animation:blink2 1s infinite; }
+@keyframes blink2 { 0%,50% { opacity:1; } 51%,100% { opacity:0; } }
+.tui-footer { display:flex; gap:12px; padding:10px 20px; background:#161b22; border-top:1px solid #30363d; }
+.foot-key { font-size:13px; color:#8b949e; background:#21262d; padding:3px 10px; border-radius:4px; border:1px solid #30363d; }
+
+</style>
+</head>
+<body>
+
+<div class="tui-wrapper">
+    <div class="tui-header">
+        <div class="tui-badge provider">openai</div>
+        <div class="tui-badge model">gpt-4o</div>
+        <div class="tui-badge thinking">thinking: off</div>
+        <div class="tui-badge ws">~/Developer</div>
+    </div>
+    <div class="tui-chat">
+        <div class="tui-msg agent"><span class="role">🤖 Agent:</span> Ahoj! Som tvoj AI agent. Čo môžem pre teba spraviť?</div>
+        <div class="tui-msg user"><span class="role">👤 Ty:</span> <span class="cursor-blink">▌</span></div>
+    </div>
+    <div class="tui-footer">
+        <span class="foot-key">/help</span>
+        <span class="foot-key">/skills</span>
+        <span class="foot-key">/model</span>
+        <span class="foot-key">/memory</span>
+        <span class="foot-key">Ctrl+C</span>
+    </div>
+</div>
+
+</body>
+</html>

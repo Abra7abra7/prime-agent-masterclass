@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Agent Masterclass - Lekcia 5: Skill library – najdôležitejšie skills</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+  background: #000; 
+  font-family: system-ui, -apple-system, sans-serif;
+  display: flex; align-items: center; justify-content: center;
+  height: 100vh; overflow: hidden;
+}
+#screen {
+  width: 1080px; height: 1350px;
+  position: relative; overflow: hidden;
+  background: #0a0a0f;
+  transform: scale(0.55); transform-origin: center center;
+  border-radius: 16px;
+  box-shadow: 0 0 100px rgba(124,92,252,0.2);
+}
+.scene {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.5s ease;
+  opacity: 0; pointer-events: none;
+}
+.scene.active { opacity: 1; pointer-events: auto; }
+
+.title-text {
+  font-size: 76px; font-weight: 800;
+  background: linear-gradient(135deg, #7c5cfc, #c084fc);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: fadeInUp 0.6s ease;
+}
+.subtitle-text { font-size: 34px; color: #a1a1aa; margin-top: 16px; animation: fadeInUp 0.6s ease 0.2s both; }
+.scene-number { position: absolute; bottom: 40px; right: 40px; color: #52525b; font-size: 20px; }
+
+.card-dark { background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 20px; padding: 56px; max-width: 750px; }
+.card-dark h2 { color: #7c5cfc; font-size: 48px; margin-bottom: 20px; }
+.card-dark p { color: #d4d4d8; font-size: 30px; line-height: 1.5; }
+.card-dark ul { color: #d4d4d8; font-size: 26px; line-height: 1.7; list-style: none; padding: 0; }
+.card-dark ul li { margin-bottom: 10px; }
+.card-dark ul li::before { content: "▸ "; color: #7c5cfc; }
+.highlight { color: #fbbf24; font-weight: 700; }
+.highlight-green { color: #4ade80; font-weight: 700; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 850px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; max-width: 900px; }
+.grid-box { background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 16px; padding: 32px; text-align: center; transition: transform 0.3s; }
+.grid-box:hover { transform: scale(1.05); }
+.grid-box .icon { font-size: 48px; margin-bottom: 12px; }
+.grid-box .label { color: #d4d4d8; font-size: 24px; }
+
+.terminal { background: #0d1117; border: 1px solid #30363d; border-radius: 16px; padding: 36px; max-width: 800px; width: 100%; }
+.terminal .line { font-family: 'Menlo', 'Monaco', monospace; font-size: 24px; margin-bottom: 8px; }
+.terminal .prompt { color: #7c5cfc; }
+.terminal .cmd { color: #e6edf3; }
+.terminal .output { color: #7ee787; font-size: 22px; }
+.terminal .output-warn { color: #fbbf24; font-size: 22px; }
+.terminal .cursor { color: #7c5cfc; animation: blink 1s infinite; }
+
+.cta-container h2 { font-size: 62px; font-weight: 800; color: white; margin-bottom: 16px; }
+.cta-container p { font-size: 30px; color: #a1a1aa; margin-bottom: 40px; }
+.cta-btn { background: #7c5cfc; color: white; padding: 20px 56px; border-radius: 14px; font-size: 32px; font-weight: 700; display: inline-block; animation: pulse 2s infinite; cursor: pointer; }
+
+.flow-diagram { display: flex; align-items: center; gap: 16px; font-family: 'Menlo', monospace; }
+.flow-box { background: #1a1a2e; border: 1px solid #7c5cfc; border-radius: 12px; padding: 16px 20px; color: #d4d4d8; font-size: 22px; text-align: center; }
+.flow-arrow { color: #7c5cfc; font-size: 32px; }
+
+.big-emoji { font-size: 100px; margin-bottom: 24px; }
+.module-badge { font-size: 22px; color: #7c5cfc; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 4px; }
+
+.comparison-table { width: 100%; max-width: 850px; border-collapse: collapse; }
+.comparison-table th { color: #7c5cfc; font-size: 28px; padding: 16px; text-align: left; border-bottom: 2px solid #2a2a3e; }
+.comparison-table td { color: #d4d4d8; font-size: 24px; padding: 16px; border-bottom: 1px solid #2a2a3e; }
+.comparison-table .star { color: #fbbf24; }
+
+.check-list { list-style: none; padding: 0; }
+.check-list li { color: #d4d4d8; font-size: 26px; margin-bottom: 12px; }
+.check-list li::before { content: "✅ "; }
+
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(124,92,252,0.4); } 50% { box-shadow: 0 0 0 20px rgba(124,92,252,0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+#progress { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 100; }
+#progress .dot { width: 12px; height: 12px; border-radius: 50%; background: #3f3f46; transition: all 0.3s; }
+#progress .dot.active { background: #7c5cfc; width: 36px; border-radius: 6px; }
+
+#controls { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 16px; z-index: 100; }
+#controls button { background: #27272a; color: white; border: none; padding: 12px 28px; border-radius: 10px; font-size: 18px; cursor: pointer; transition: background 0.2s; }
+#controls button:hover { background: #3f3f46; }
+#controls button.play { background: #7c5cfc; }
+#controls button.play:hover { background: #6d4ff0; }
+
+/* Hyperframe embed */
+.hf-embed { width: 100%; max-width: 850px; height: 480px; border-radius: 16px; border: 2px solid #2a2a3e; background: #0d1117; }
+
+</style>
+</head>
+<body>
+
+<div id="progress">
+  <div class="dot active" data-scene="0"></div>
+  <div class="dot" data-scene="1"></div>
+  <div class="dot" data-scene="2"></div>
+  <div class="dot" data-scene="3"></div>
+  <div class="dot" data-scene="4"></div>
+  <div class="dot" data-scene="5"></div>
+  <div class="dot" data-scene="6"></div>
+</div>
+
+<div id="screen">
+  <div class="scene active" data-duration="4000">
+
+    <div style="text-align:center">
+      <div class="module-badge">Modul 3 · Lekcia 5</div>
+      <div class="title-text" style="font-size:58px">Skill library</div>
+      <div class="subtitle-text">Najdôležitejšie skills pre biznis</div>
+    </div>
+    <div class="scene-number">1 / 7</div>
+  </div>
+  <div class="scene" data-duration="6000">
+
+    <div style="max-width:900px">
+      <h2 style="color:#7c5cfc; font-size:38px; text-align:center; margin-bottom:16px">📢 Marketingové skills</h2>
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">✍️ <span class="highlight">copywriting</span> — Píše texty, ktoré konvertujú</div>
+          <div style="color:#a1a1aa; font-size:20px">Homepage, landing pages, pricing, CTA</div>
+        </div>
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">🔍 <span class="highlight">seo-audit</span> — SEO doktor</div>
+          <div style="color:#a1a1aa; font-size:20px">Technické SEO, on-page, meta tags, skóre 0-100</div>
+        </div>
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">📅 <span class="highlight">content-strategy</span> — Čo písať</div>
+          <div style="color:#a1a1aa; font-size:20px">Topic clustre, obsahový kalendár, 3-mesačný plán</div>
+        </div>
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">🕵️ <span class="highlight">competitor-profiling</span> — Špiónska agentúra</div>
+          <div style="color:#a1a1aa; font-size:20px">Profily konkurentov, SWOT, features matrix</div>
+        </div>
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">📧 <span class="highlight">emails</span> — Automatické sekvencie</div>
+          <div style="color:#a1a1aa; font-size:20px">Welcome, nurture, re-engagement, onboarding emaily</div>
+        </div>
+      </div>
+      <p style="color:white; font-size:22px; text-align:center; margin-top:12px">5 skillov = <span class="highlight">tvoja marketingová agentúra</span></p>
+    </div>
+    <div class="scene-number">2 / 7</div>
+  </div>
+  <div class="scene" data-duration="6000">
+
+    <div style="max-width:900px">
+      <h2 style="color:#7c5cfc; font-size:38px; text-align:center; margin-bottom:16px">💼 Biznis a stratégia</h2>
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">💲 <span class="highlight">pricing</span> — Koľko si pýtať</div>
+          <div style="color:#a1a1aa; font-size:20px">Cenová stratégia, tier štruktúra, value metric</div>
+        </div>
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">🎁 <span class="highlight">offers</span> — Neodolateľná ponuka</div>
+          <div style="color:#a1a1aa; font-size:20px">Bonusy, garancie, value stacking, Grand Slam Offer</div>
+        </div>
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">🧪 <span class="highlight">ab-testing</span> — Experimenty</div>
+          <div style="color:#a1a1aa; font-size:20px">Návrh a vyhodnotenie A/B testov, štatistická signifikancia</div>
+        </div>
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">🚀 <span class="highlight">launch</span> — Produktový launch</div>
+          <div style="color:#a1a1aa; font-size:20px">30-dňový plán, Product Hunt, checklist, koordinácia</div>
+        </div>
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">📋 <span class="highlight">marketing-plan</span> — 90-dňový plán</div>
+          <div style="color:#a1a1aa; font-size:20px">AARRR framework, budget alokácia, 13-sekčný plán</div>
+        </div>
+      </div>
+    </div>
+    <div class="scene-number">3 / 7</div>
+  </div>
+  <div class="scene" data-duration="6000">
+
+    <div style="max-width:900px">
+      <h2 style="color:#7c5cfc; font-size:38px; text-align:center; margin-bottom:16px">📈 Predaj a growth</h2>
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">📨 <span class="highlight">cold-email</span> — Studený outreach</div>
+          <div style="color:#a1a1aa; font-size:20px">Cold email kampane, follow-up sekvencie, SDR</div>
+        </div>
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">🎯 <span class="highlight">prospecting</span> — Hľadanie leadov</div>
+          <div style="color:#a1a1aa; font-size:20px">Zoznamy prospectov, kvalifikácia, ICP-fit</div>
+        </div>
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">🛡️ <span class="highlight">sales-enablement</span> — Výzbroj pre sales</div>
+          <div style="color:#a1a1aa; font-size:20px">Pitch deck, one-pager, objection handling, demo script</div>
+        </div>
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">🔗 <span class="highlight">referrals</span> — Virálny rast</div>
+          <div style="color:#a1a1aa; font-size:20px">Referral program, affiliate, ambasádori, odmeny</div>
+        </div>
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">🛟 <span class="highlight">churn-prevention</span> — Záchrana zákazníkov</div>
+          <div style="color:#a1a1aa; font-size:20px">Cancel flow, save offers, win-back, dunning</div>
+        </div>
+      </div>
+      <p style="color:white; font-size:22px; text-align:center; margin-top:12px">5 skillov = <span class="highlight">tvoj growth stack</span></p>
+    </div>
+    <div class="scene-number">4 / 7</div>
+  </div>
+  <div class="scene" data-duration="6000">
+
+    <div style="max-width:900px">
+      <h2 style="color:#7c5cfc; font-size:38px; text-align:center; margin-bottom:16px">🔬 Špeciálne skills</h2>
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">👥 <span class="highlight">customer-research</span> — Čo si myslia zákazníci</div>
+          <div style="color:#a1a1aa; font-size:20px">Analýza rozhovorov, survey, review mining, Reddit mining</div>
+        </div>
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">🤖 <span class="highlight">ai-seo</span> — SEO pre AI vyhľadávače</div>
+          <div style="color:#a1a1aa; font-size:20px">Optimalizácia pre ChatGPT, Perplexity, AI Overviews</div>
+        </div>
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">📐 <span class="highlight">programmatic-seo</span> — SEO na škále</div>
+          <div style="color:#a1a1aa; font-size:20px">Generovanie stoviek SEO stránok podľa šablón</div>
+        </div>
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">🖼️ <span class="highlight">image</span> — Vizuálny obsah</div>
+          <div style="color:#a1a1aa; font-size:20px">Blog hero, social media grafika, OG images, AI generácia</div>
+        </div>
+        <div class="grid-box" style="text-align:left; padding:16px 28px">
+          <div style="font-size:26px">📱 <span class="highlight">social</span> — Social media manažér</div>
+          <div style="color:#a1a1aa; font-size:20px">LinkedIn posty, Twitter thready, obsahový kalendár</div>
+        </div>
+      </div>
+    </div>
+    <div class="scene-number">5 / 7</div>
+  </div>
+  <div class="scene" data-duration="5000">
+
+    <div class="card-dark" style="max-width:820px">
+      <h2>🏆 Top 20 skillov — rýchly prehľad</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px 24px; font-size:22px">
+        <div>📢 <span class="highlight">copywriting</span></div><div>💲 <span class="highlight">pricing</span></div>
+        <div>🔍 <span class="highlight">seo-audit</span></div><div>🎁 <span class="highlight">offers</span></div>
+        <div>📅 <span class="highlight">content-strategy</span></div><div>🧪 <span class="highlight">ab-testing</span></div>
+        <div>🕵️ <span class="highlight">competitor-profiling</span></div><div>🚀 <span class="highlight">launch</span></div>
+        <div>📧 <span class="highlight">emails</span></div><div>📋 <span class="highlight">marketing-plan</span></div>
+        <div>📨 <span class="highlight">cold-email</span></div><div>👥 <span class="highlight">customer-research</span></div>
+        <div>🎯 <span class="highlight">prospecting</span></div><div>🤖 <span class="highlight">ai-seo</span></div>
+        <div>🛡️ <span class="highlight">sales-enablement</span></div><div>📐 <span class="highlight">programmatic-seo</span></div>
+        <div>🔗 <span class="highlight">referrals</span></div><div>🖼️ <span class="highlight">image</span></div>
+        <div>🛟 <span class="highlight">churn-prevention</span></div><div>📱 <span class="highlight">social</span></div>
+      </div>
+      <p style="margin-top:24px; font-size:24px; color:white">Každý skill = <span class="highlight">hodiny ušetreného času</span>. Zační tými, ktoré riešia tvoj najväčší problém.</p>
+    </div>
+    <div class="scene-number">6 / 7</div>
+  </div>
+  <div class="scene" data-duration="5000">
+
+    <div class="cta-container" style="text-align:center">
+      <div class="big-emoji">🏆</div>
+      <h2>Modul 3 — Splnené! ✅</h2>
+      <div style="color:#d4d4d8; font-size:26px; line-height:1.6">
+        <p>✅ Čo sú skills, kde ich nájsť, ako vyhodnotiť kvalitu</p>
+        <p>✅ Inštalácia (4 spôsoby) a používanie (3 spôsoby aktivácie)</p>
+        <p>✅ Vlastný markdown skill — od štruktúry po iteráciu</p>
+        <p>✅ Python skills — kedy ich použiť, ako postaviť, ladiť</p>
+        <p>✅ Top 20 skillov z knižnice pre biznis a marketing</p>
+        <p style="margin-top:20px"><span class="highlight">Module 4: Automatizácia →</span></p>
+      </div>
+    </div>
+    <div class="scene-number">7 / 7</div>
+  </div>
+</div>
+
+<div id="controls">
+  <button onclick="prevScene()">◀ Späť</button>
+  <button class="play" id="playBtn" onclick="togglePlay()">▶ Prehrať</button>
+  <button onclick="nextScene()">Ďalej ▶</button>
+</div>
+
+<script>
+
+let currentScene = 0;
+let isPlaying = false;
+let timeout = null;
+const scenes = document.querySelectorAll('.scene');
+const dots = document.querySelectorAll('.dot');
+
+function showScene(i) {
+  scenes.forEach((s, idx) => s.classList.toggle('active', idx === i));
+  dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+  currentScene = i;
+}
+
+function nextScene() {
+  let next = (currentScene + 1) % scenes.length;
+  showScene(next);
+  if (isPlaying) scheduleNext();
+}
+
+function prevScene() {
+  let prev = (currentScene - 1 + scenes.length) % scenes.length;
+  showScene(prev);
+  if (isPlaying) scheduleNext();
+}
+
+function scheduleNext() {
+  if (timeout) clearTimeout(timeout);
+  let dur = parseInt(scenes[currentScene].dataset.duration) || 4000;
+  timeout = setTimeout(nextScene, dur);
+}
+
+function togglePlay() {
+  isPlaying = !isPlaying;
+  document.getElementById('playBtn').textContent = isPlaying ? '⏸ Pauza' : '▶ Prehrať';
+  if (isPlaying) scheduleNext();
+  else if (timeout) clearTimeout(timeout);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextScene(); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); prevScene(); }
+  if (e.key === 'p') { e.preventDefault(); togglePlay(); }
+});
+
+console.log('🎬 Prime Agent Masterclass');
+console.log('🎮 Ovládanie: šípky ← → alebo medzerník, P = play/pauza');
+console.log('📱 Otvor v prehliadači a prepni do fullscreenu (F11)');
+
+</script>
+</body>
+</html>

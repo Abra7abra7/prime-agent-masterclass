@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<!-- duration: 50s -->
+<!-- note: Split screen – vľavo človek píše, vpravo agent spracúva a radí -->
+<title>L1 F3 – Split screen</title>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+    background: #0d1117;
+    color: #c9d1d9;
+    width: 1920px; height: 1080px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+}
+
+
+.split-h { width: 1700px; display: flex; gap: 0; }
+.panel-left, .panel-right { flex: 1; background: #161b22; border: 1px solid #30363d; border-radius: 12px; overflow: hidden; }
+.panel-header { background: #21262d; padding: 14px 24px; font-size: 20px; font-weight: 700; border-bottom: 1px solid #30363d; }
+.panel-body { padding: 24px; min-height: 500px; }
+.panel-divider { width: 4px; background: linear-gradient(180deg, #1f6feb, #3fb950); border-radius: 2px; margin: 0 16px; }
+.cursor { color: #58a6ff; animation: blink 1s infinite; }
+@keyframes blink { 0%,50% { opacity:1; } 51%,100% { opacity:0; } }
+
+</style>
+</head>
+<body>
+
+<div class="split-h">
+    <div class="panel-left">
+        <div class="panel-header">👤 Človek</div>
+        <div class="panel-body" style="font-size:18px; color:#8b949e;">
+            <span class="typed">Potrebujem analyzovať</span><span class="cursor">▌</span><br>
+            <span class="typed">dáta z Google Analytics...</span><br>
+            <span class="typed">priemerne 5 000 návštev/mes.</span><br>
+            <span class="typed">bounce rate 72 %</span><br>
+            <span class="typed">konverzia 0.8 %</span>
+        </div>
+    </div>
+    <div class="panel-divider"></div>
+    <div class="panel-right">
+        <div class="panel-header">🤖 Agent</div>
+        <div class="panel-body" style="font-size:18px; line-height:1.6;">
+            <span class="green">⏳ Načítavam GA4 report…</span><br>
+            <span class="green">📊 Priemer odvetvia: 2.1 %</span><br>
+            <span class="yellow">⚠️ Stránka je 3× pod priemerom</span><br>
+            <span class="cyan">🎯 Odporúčam A/B test:</span><br>
+            <span class="cyan">  • Nový headline</span><br>
+            <span class="cyan">  • Dôveryhodnostné prvky</span><br>
+            <span class="cyan">  • Zjednodušený formulár</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

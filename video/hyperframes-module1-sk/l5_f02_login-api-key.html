@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<!-- duration: 50s -->
+<!-- note: /login obrazovka – zadávanie DeepSeek API kľúča, ostatné už nastavené -->
+<title>L5 F2 – /login</title>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+    background: #0d1117;
+    color: #c9d1d9;
+    width: 1920px; height: 1080px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+}
+
+
+.login-card { width:1300px; background:#161b22; border:1px solid #30363d; border-radius:14px; overflow:hidden; }
+.login-header { background:#21262d; padding:20px 32px; font-size:24px; font-weight:700; color:#e6edf3; border-bottom:1px solid #30363d; }
+.login-body { padding:28px 32px; display:flex; flex-direction:column; gap:14px; }
+.provider-row { display:flex; align-items:center; gap:16px; padding:12px 16px; background:#0d1117; border-radius:8px; border:1px solid transparent; }
+.provider-row.active { border-color:#1f6feb; background:rgba(31,111,235,0.06); }
+.prov-name { width:130px; font-size:18px; font-weight:600; color:#c9d1d9; }
+.key-input { flex:1; padding:10px 14px; background:#0d1117; border:1px solid #30363d; border-radius:6px; color:#8b949e; font-size:16px; font-family:monospace; }
+.key-input.active-input { color:#c9d1d9; border-color:#1f6feb; }
+.status { width:30px; text-align:center; font-size:20px; }
+.status.ok { color:#3fb950; }
+.status.saving { color:#d2991d; animation:pulse 1s infinite; }
+@keyframes pulse { 0%,50% { opacity:1; } 51%,100% { opacity:0.4; } }
+.login-footer { padding:16px 32px; background:#0d1117; border-top:1px solid #30363d; display:flex; justify-content:space-between; }
+.foot-note { font-size:14px; color:#8b949e; }
+
+</style>
+</head>
+<body>
+
+<div class="login-card">
+    <div class="login-header">🔑 /login — Nastavenie API kľúčov</div>
+    <div class="login-body">
+        <div class="provider-row">
+            <div class="prov-name">OpenAI</div>
+            <input class="key-input" type="password" value="sk-••••••••••••••••••••••••••••••••••" readonly>
+            <span class="status ok">✅</span>
+        </div>
+        <div class="provider-row">
+            <div class="prov-name">Anthropic</div>
+            <input class="key-input" type="password" value="sk-ant-••••••••••••••••••••••••••••••" readonly>
+            <span class="status ok">✅</span>
+        </div>
+        <div class="provider-row active">
+            <div class="prov-name">DeepSeek</div>
+            <input class="key-input active-input" type="text" value="sk-f8a3c9d1e2b4••••••••••••••••••••••">
+            <span class="status saving">⏳</span>
+        </div>
+        <div class="provider-row">
+            <div class="prov-name">Google</div>
+            <input class="key-input" type="password" placeholder="AIza...">
+            <span class="status">○</span>
+        </div>
+    </div>
+    <div class="login-footer">
+        <span class="foot-note">💡 API kľúče sú uložené v ~/.prime/config a .env súbore</span>
+        <span class="foot-note">🔒 Šifrované AES-256-GCM</span>
+    </div>
+</div>
+
+</body>
+</html>

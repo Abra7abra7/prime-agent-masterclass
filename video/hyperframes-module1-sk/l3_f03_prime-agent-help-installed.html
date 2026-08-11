@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<!-- duration: 50s -->
+<!-- note: Úspešná inštalácia – help výstup s verziou a príkladmi -->
+<title>L3 F3 – prime-agent --help</title>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+    background: #0d1117;
+    color: #c9d1d9;
+    width: 1920px; height: 1080px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+}
+
+
+.terminal-frame {
+    width: 1700px; max-height: 960px;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+.terminal-titlebar {
+    background: #21262d;
+    padding: 14px 20px;
+    display: flex; align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #30363d;
+}
+.terminal-titlebar .dots { display: flex; gap: 8px; }
+.terminal-titlebar .dots i {
+    display: block; width: 13px; height: 13px; border-radius: 50%;
+}
+.terminal-titlebar .dots i:nth-child(1) { background: #ff5f56; }
+.terminal-titlebar .dots i:nth-child(2) { background: #ffbd2e; }
+.terminal-titlebar .dots i:nth-child(3) { background: #27ca40; }
+.terminal-titlebar .title {
+    color: #8b949e; font-size: 15px; margin-left: 12px;
+}
+.terminal-body {
+    padding: 28px 32px;
+    font-size: 19px; line-height: 1.55;
+    white-space: pre-wrap;
+    color: #c9d1d9;
+    min-height: 200px;
+}
+.terminal-body .prompt { color: #58a6ff; }
+.terminal-body .cmd   { color: #79c0ff; font-weight: 600; }
+.terminal-body .out   { color: #8b949e; }
+.terminal-body .green { color: #3fb950; }
+.terminal-body .yellow{ color: #d2991d; }
+.terminal-body .red   { color: #f85149; }
+.terminal-body .cyan  { color: #39d2c0; }
+.terminal-body .hl    { background: rgba(88,166,255,0.15); padding: 2px 6px; border-radius: 3px; }
+
+</style>
+</head>
+<body>
+
+<div class="terminal-frame">
+    <div class="terminal-titlebar">
+        <span class="dots"><i></i><i></i><i></i></span>
+        <span class="title">Terminál — prime-agent --help</span>
+    </div>
+    <div class="terminal-body">
+
+<span class="prompt">❯ </span><span class="cmd">prime-agent --help</span>
+
+<span class="green">Prime Agent v2.14.1 — tvoj AI agent v termináli</span>
+
+<span class="cyan">Použitie:</span>
+<span class="out">  prime-agent [options] [prompt]</span>
+
+<span class="cyan">Options:</span>
+<span class="out">  --provider &lt;provider&gt;    LLM provider</span>
+<span class="out">  --model &lt;model&gt;          Model</span>
+<span class="out">  --thinking &lt;level&gt;       Reasoning úroveň</span>
+<span class="out">  --workspace &lt;path&gt;       Pracovný adresár</span>
+<span class="out">  --verbose, -v             Podrobný výstup</span>
+<span class="out">  --version, -V             Verzia</span>
+<span class="out">  --help, -h                Táto pomoc</span>
+
+<span class="cyan">Príklady:</span>
+<span class="out">  prime-agent</span>
+<span class="out">  prime-agent --provider deepseek --model deepseek-v4-flash</span>
+<span class="out">  prime-agent "Nájdi TODO v mojom projekte"</span>
+
+<span class="green">✨ Inštalácia úspešná! Spusti \`prime-agent\` pre štart.</span>
+
+    </div>
+</div>
+</body>
+</html>

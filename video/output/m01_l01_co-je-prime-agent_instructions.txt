@@ -1,0 +1,160 @@
+========================================================================
+  PRIME AGENT MASTERCLASS – GENEROVANÉ INŠTRUKCIE
+  Lekcia: M1L1 – Čo je Prime Agent a prečo ho potrebuješ
+  Vygenerované: 2026-08-10T21:36:37.282464
+========================================================================
+
+## ČASŤ A: HEYGEN AVATAR VIDEO
+
+# ── HeyGen API: Avatar video ─────────────────────────────────────────────
+# Lekcia: M1L1 – Čo je Prime Agent a prečo ho potrebuješ
+# Výstup: m01_l01_co-je-prime-agent
+#
+# PRED SPUSTENIM:
+#   1. Nastav HEYGEN_API_KEY v prostredí: export HEYGEN_API_KEY="sk-..."
+#   2. Nahraď AVATAR_ID a VOICE_ID za tvoje hodnoty z HeyGen dashboardu
+#   3. Avatar ID nájdeš v https://app.heygen.com/avatars
+#   4. Voice ID nájdeš v https://app.heygen.com/voices
+#
+# POZNÁMKA: HeyGen API v2 podporuje streaming a async vytváranie videí.
+#           Nižšie sú curl príkazy pre klasické dávkové generovanie.
+
+# Krok 1: Vytvorenie avatar videa (classic batch)
+curl -X POST "https://api.heygen.com/v2/video/generate" \
+  -H "X-Api-Key: $HEYGEN_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "video_name": "m01_l01_co-je-prime-agent",
+    "dimension": { "width": 1920, "height": 1080 },
+    "avatar_id": "YOUR_AVATAR_ID",
+    "voice_id": "YOUR_VOICE_ID",
+    "input_text": "Predstav si, že máš vývojára, ktorý nikdy nespí, nikdy sa nesťažuje a rozumie celému tvojmu kódu. To je Prime Agent. Prime Agent je **RLM-native terminal coding agent** – AI, ktorá žije v tvojom termináli a programuje spolu s tebou. Nachádzame sa v inflexnom bode. AI agenti prešli od „wow, to je cool demo\" k „toto reálne používam každý deň. Ak nie si AI-native vývojár do konca roka 2025, budeš zaostávať. Toto je moment, keď sa to učíš. - **Prejsť rýchly prehľad schopností (ukázať, nie vysvetľovať):**   - Číta a edituje súbory (skill: `edit`)   - Vyhľadáva na webe (`websearch`)   - Spúšťa shell príkazy a Python kód (IPython kernel)   - Vytvára a spravuje vlastné skilly   - Spúšťa pod-agentov pre paralelné úlohy   - Kompaktuje konte Prime Agent je len špička ľadovca. Prime Intellect buduje celú open-source AGI infraštruktúru: Prime Agent je tvoj vstup do tohto ekosystému. Dnes sa naučíš základy.",
+    "background": { "type": "color", "value": "#0a0a1a" },
+    "avatar_style": "normal"
+  }'
+
+# Krok 2: Alternatívne – streaming avatar (rýchlejšie, v2 API)
+curl -X POST "https://api.heygen.com/v2/video/template" \
+  -H "X-Api-Key: $HEYGEN_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "template_name": "m01_l01_co-je-prime-agent_stream",
+    "dimension": { "width": 1920, "height": 1080 },
+    "avatar_id": "YOUR_AVATAR_ID",
+    "voice_id": "YOUR_VOICE_ID",
+    "script": "Predstav si, že máš vývojára, ktorý nikdy nespí, nikdy sa nesťažuje a rozumie celému tvojmu kódu. To je Prime Agent. Prime Agent je **RLM-native terminal coding agent** – AI, ktorá žije v tvojom termináli a programuje spolu s tebou. Nachádzame sa v inflexnom bode. AI agenti prešli od „wow, to je cool demo\" k „toto reálne používam každý deň. Ak nie si AI-native vývojár do konca roka 2025, budeš zaostávať. Toto je moment, keď sa to učíš. - **Prejsť rýchly prehľad schopností (ukázať, nie vysvetľovať):**   - Číta a edituje súbory (skill: `edit`)   - Vyhľadáva na webe (`websearch`)   - Spúšťa shell príkazy a Python kód (IPython kernel)   - Vytvára a spravuje vlastné skilly   - Spúšťa pod-agentov pre paralelné úlohy   - Kompaktuje konte Prime Agent je len špička ľadovca. Prime Intellect buduje celú open-source AGI infraštruktúru: Prime Agent je tvoj vstup do tohto ekosystému. Dnes sa naučíš základy.",
+    "background": "#0a0a1a"
+  }'
+
+# Krok 3: Stiahni video (doplň video_id z odpovede)
+# curl -o m01_l01_co-je-prime-agent "https://api.heygen.com/v1/video/download?video_id=VIDEO_ID" \
+#   -H "X-Api-Key: $HEYGEN_API_KEY"
+
+## ČASŤ B: HYPERFRAMES SCREEN DEMO
+
+# ── Hyperframes Screen Demo ─────────────────────────────────────────────
+# Lekcia: M1L1
+# Počet frames: 1
+#
+npx hyperframes render \
+  --input "/Users/abra/Developer/prime-agent-masterclass/video/hyperframes-module1-sk/lesson1-01-terminal-intro.html" \
+  --output "/Users/abra/Developer/prime-agent-masterclass/video/output/m01_l01_co-je-prime-agent_screen_01.mp4" \
+  --fps 30 \
+  --scale 1.0
+
+# Spojenie všetkých screen častí do jedného videa:
+# (vytvorí sa súbor so zoznamom častí a spojí sa)
+# echo "file 'm01_l01_co-je-prime-agent_screen_01.mp4'" > /Users/abra/Developer/prime-agent-masterclass/video/output/m01_l01_co-je-prime-agent_screen_files.txt
+# ffmpeg -f concat -safe 0 -i /Users/abra/Developer/prime-agent-masterclass/video/output/m01_l01_co-je-prime-agent_screen_files.txt -c copy /Users/abra/Developer/prime-agent-masterclass/video/output/m01_l01_co-je-prime-agent_screen_full.mp4
+
+## ČASŤ C: FFMPEG SPOJENIE
+
+# ── FFmpeg: Finálne spojenie ────────────────────────────────────────────
+# Variant A: Avatar vľavo (malý), screen demo vpravo
+ffmpeg -i "/Users/abra/Developer/prime-agent-masterclass/video/output/m01_l01_co-je-prime-agent_avatar.mp4" -i "/Users/abra/Developer/prime-agent-masterclass/video/output/m01_l01_co-je-prime-agent_screen_full.mp4" \
+  -filter_complex "
+    [0:v]scale=480:270,format=yuv420p[avatar];
+    [1:v]scale=1440:810,format=yuv420p[screen];
+    [avatar]pad=1920:1080:20:810:black[left];
+    [left][screen]overlay=480:0[out]
+  " \
+  -map "[out]" -map 1:a \
+  -c:v libx264 -preset medium -crf 23 \
+  -c:a aac -b:a 128k \
+  -shortest \
+  "/Users/abra/Developer/prime-agent-masterclass/video/output/m01_l01_co-je-prime-agent_final.mp4"
+
+# Variant B: Avatar + screen vedľa seba (50/50 split)
+# Po dokončení skontroluj výsledok:
+# ffprobe "/Users/abra/Developer/prime-agent-masterclass/video/output/m01_l01_co-je-prime-agent_final.mp4"
+
+# Shorts verzia (9:16 vertikálne pre TikTok/Shorts/Reels):
+ffmpeg -i "/Users/abra/Developer/prime-agent-masterclass/video/output/m01_l01_co-je-prime-agent_final.mp4" \
+  -vf "crop=1080:1920:420:0,scale=1080:1920" \
+  -c:v libx264 -preset fast -crf 23 \
+  -c:a aac -b:a 128k \
+  "/Users/abra/Developer/prime-agent-masterclass/video/output/m01_l01_co-je-prime-agent_shorts.mp4"
+
+## ČASŤ D: YOUTUBE / TIKTOK METADÁTA
+
+### YouTube
+
+**Titulok:**
+Prime Agent Masterclass – M1: Úvod a inštalácia | Lekcia 1 – Čo je Prime Agent a prečo ho potrebuješ
+
+**Popis:**
+Prime Agent Masterclass – M1: Úvod a inštalácia | Lekcia 1 – Čo je Prime Agent a prečo ho potrebuješ
+
+📚 **Prime Agent Masterclass** – Kompletný kurz pre vývojárov a marketérov.
+Modul 1: Úvod a inštalácia – Lekcia 1 z 5.
+
+⏱️ Dĺžka: 10 minút
+📅 Publikované: 2026-08-10
+
+🔗 **Užitočné odkazy:**
+• Prime Agent GitHub: https://github.com/PrimeIntellect-ai/prime-agent
+• Prime Intellect: https://primeintellect.ai
+• Dokumentácia: https://docs.primeintellect.ai
+
+📋 **V tejto lekcii:**
+• Kľúčový bod 1
+• Kľúčový bod 2
+• Kľúčový bod 3
+
+🎯 **Domáca úloha:** Pozri popis v kurze.
+
+💬 **Diskusia:** Máte otázky? Napíšte komentár!
+
+#PrimeAgent #AIAgent #CodingTutorial #Masterclass
+
+---
+🔔 **Nezabudni odoberať** pre ďalšie lekcie Prime Agent Masterclass!
+
+**Tagy:**
+M1, Modul 1, Úvod a inštalácia, Čo je Prime Agent a prečo ho potrebuješ, Prime Agent, Prime Agent Masterclass, AI Agent tutorial, coding agent, AI coding, terminal AI, autonomous agent, Prime Intellect, open source AI agent, AI developer tools, programovanie s AI, AI tutoriál, PrimeAgent, AIAgent, CodingAgent, AI, ProgrammingTutorial, AITools, DeveloperTools, Automation, TerminalAI, OpenSource, Installation, Setup, GettingStarted, DevEnvironment
+
+### TikTok
+
+**Titulok:**
+Nauč sa čo je prime agent a prečo ho potrebuješ s Prime Agentom 🚀
+
+**Popis:**
+Čo je Prime Agent a prečo ho potrebuješ za 10 minút! ⚡
+
+🎓 Prime Agent Masterclass – Modul 1
+Nauč sa používať AI agenta v termináli.
+
+#PrimeAgent #AIAgent #CodingAgent #AI #ProgrammingTutorial
+#PrimeAgentMasterclass #LearnToCode
+
+**Tagy:**
+primeagent, aiagent, codingagent, aitutorial, programming, developer, terminal, automation, learnai, techtok, codetok, aitools, installation, setup, gettingstarted, devenvironment
+
+## ČASŤ E: ZHRNUTIE – POSTUP KROK ZA KROKOM
+
+1. Vygeneruj avatar video cez HeyGen (Časť A)
+2. Vyrenderuj screen demo cez Hyperframes (Časť B)
+3. Spoj avatar + screen demo cez FFmpeg (Časť C)
+4. Vytvor Shorts verziu (Časť C)
+5. Nahraj na YouTube s pripravenými titulkami (Časť D)
+6. Postni TikTok/Shorts/Reels s pripraveným popisom (Časť D)

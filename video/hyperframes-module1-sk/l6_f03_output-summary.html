@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<!-- duration: 45s -->
+<!-- note: Záverečný sumár – všetky kroky hotové, štatistiky, CTA na ďalší modul -->
+<title>L6 F3 – Výstup a zhrnutie</title>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+    background: #0d1117;
+    color: #c9d1d9;
+    width: 1920px; height: 1080px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+}
+
+
+.final-card { width:1300px; background:#161b22; border:1px solid #30363d; border-radius:16px; padding:40px; }
+.final-header { font-size:32px; font-weight:700; color:#3fb950; text-align:center; margin-bottom:32px; }
+.final-grid { display:flex; flex-direction:column; gap:14px; margin-bottom:32px; }
+.final-step { display:flex; align-items:center; gap:16px; padding:14px 20px; background:#0d1117; border-radius:8px; }
+.final-step.done { border-left:4px solid #3fb950; }
+.step-num { width:32px; height:32px; background:#21262d; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:700; color:#8b949e; }
+.step-label { flex:1; font-size:18px; color:#c9d1d9; }
+.step-check { font-size:24px; }
+.final-summary { display:flex; justify-content:center; gap:60px; margin-bottom:28px; }
+.sum-stat { text-align:center; }
+.sum-num { display:block; font-size:36px; font-weight:800; color:#58a6ff; }
+.final-cta { padding:18px 24px; background:rgba(31,111,235,0.1); border:1px solid #1f6feb; border-radius:10px; font-size:20px; color:#c9d1d9; text-align:center; }
+
+</style>
+</head>
+<body>
+
+<div class="final-card">
+    <div class="final-header">✅ Hotovo! Agent splnil úlohu</div>
+    <div class="final-grid">
+        <div class="final-step done">
+            <span class="step-num">1</span>
+            <span class="step-label">Analyzovať dáta</span>
+            <span class="step-check">✅</span>
+        </div>
+        <div class="final-step done">
+            <span class="step-num">2</span>
+            <span class="step-label">Vytvoriť vizualizáciu</span>
+            <span class="step-check">✅</span>
+        </div>
+        <div class="final-step done">
+            <span class="step-num">3</span>
+            <span class="step-label">Uložiť graf → output/chart.png</span>
+            <span class="step-check">✅</span>
+        </div>
+        <div class="final-step">
+            <span class="step-num">4</span>
+            <span class="step-label">Návrh: A/B test titulky</span>
+            <span class="step-check">💡</span>
+        </div>
+    </div>
+    <div class="final-summary">
+        <div class="sum-stat"><span class="sum-num">8.3s</span> čas vykonania</div>
+        <div class="sum-stat"><span class="sum-num">4</span> kroky</div>
+        <div class="sum-stat"><span class="sum-num">0</span> chýb</div>
+    </div>
+    <div class="final-cta">
+        🚀 Toto je len začiatok – agent môže robiť oveľa viac. Naučíme sa v ďalších moduloch!
+    </div>
+</div>
+
+</body>
+</html>

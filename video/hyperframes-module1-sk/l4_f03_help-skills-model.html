@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<!-- duration: 60s -->
+<!-- note: Prehľad troch kľúčových príkazov v TUI -->
+<title>L4 F3 – /help /skills /model</title>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+    background: #0d1117;
+    color: #c9d1d9;
+    width: 1920px; height: 1080px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+}
+
+
+.cmds-demo { width:1500px; display:flex; flex-direction:column; gap:18px; }
+.cmd-row { display:flex; gap:16px; align-items:flex-start; }
+.cmd-name { background:#1f6feb; color:#fff; padding:12px 22px; border-radius:8px; font-size:22px; font-weight:700; min-width:140px; text-align:center; white-space:nowrap; }
+.cmd-desc { background:#161b22; border:1px solid #30363d; border-radius:10px; padding:18px 24px; flex:1; }
+.cmd-out-title { font-size:16px; color:#58a6ff; margin-bottom:10px; }
+.cmd-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px 24px; font-size:16px; color:#c9d1d9; }
+.model-opts { display:flex; flex-direction:column; gap:6px; font-size:15px; color:#8b949e; }
+.model-opts .active { color:#3fb950; font-weight:600; }
+
+</style>
+</head>
+<body>
+
+<div class="cmds-demo">
+    <div class="cmd-row">
+        <div class="cmd-name">/help</div>
+        <div class="cmd-desc">
+            <div class="cmd-out-title">Dostupné príkazy:</div>
+            <div class="cmd-grid">
+                <span>/help – táto obrazovka</span>
+                <span>/skills – zoznam skillov</span>
+                <span>/model – prepnutie modelu</span>
+                <span>/memory – správa pamäte</span>
+                <span>/login – API kľúče</span>
+                <span>/workspace – zmena adresára</span>
+            </div>
+        </div>
+    </div>
+    <div class="cmd-row">
+        <div class="cmd-name">/skills</div>
+        <div class="cmd-desc">
+            <div class="cmd-out-title">Nainštalované skilly (15):</div>
+            <div class="cmd-grid">
+                <span>📝 edit</span><span>🔍 websearch</span><span>📊 analytics</span>
+                <span>🐳 docker</span><span>📂 filesystem</span><span>🔄 git</span>
+                <span>📧 gmail</span><span>📅 calendar</span><span>🐦 social</span>
+            </div>
+        </div>
+    </div>
+    <div class="cmd-row">
+        <div class="cmd-name">/model</div>
+        <div class="cmd-desc">
+            <div class="cmd-out-title">Prepnutie modelu:</div>
+            <div class="model-opts">
+                <span class="active">openai / gpt-4o ✅</span>
+                <span>anthropic / claude-sonnet-4-20250514</span>
+                <span>deepseek / deepseek-v4-flash</span>
+                <span>google / gemini-2.5-flash</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

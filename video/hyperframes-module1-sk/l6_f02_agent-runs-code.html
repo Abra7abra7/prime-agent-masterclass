@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<!-- duration: 50s -->
+<!-- note: Agent spúšťa Python kód – pandas analýza + matplotlib graf -->
+<title>L6 F2 – Agent spúšťa kód</title>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+    background: #0d1117;
+    color: #c9d1d9;
+    width: 1920px; height: 1080px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+}
+
+
+.code-demo { width:1500px; background:#0d1117; border:1px solid #30363d; border-radius:14px; overflow:hidden; }
+.code-header { display:flex; justify-content:space-between; align-items:center; padding:14px 20px; background:#161b22; border-bottom:1px solid #30363d; }
+.code-badge { font-size:16px; color:#3fb950; font-weight:600; }
+.code-file { font-size:14px; color:#8b949e; }
+.code-editor { padding:24px; background:#0d1117; font-size:16px; line-height:1.6; }
+.code-editor pre { margin:0; white-space:pre-wrap; }
+.kw { color:#ff7b72; } .cm { color:#8b949e; } .str { color:#a5d6ff; } .num { color:#79c0ff; } .out { color:#8b949e; } .green { color:#3fb950; }
+.code-output { padding:20px 24px; background:#161b22; border-top:1px solid #30363d; }
+.out-title { font-size:16px; color:#58a6ff; margin-bottom:12px; }
+.out-bars { display:flex; flex-direction:column; gap:8px; }
+.out-bar { display:flex; align-items:center; gap:12px; }
+.bar-label { width:80px; font-size:15px; color:#c9d1d9; text-align:right; }
+.bar-fill { height:20px; background:#58a6ff; border-radius:4px; }
+.bar-fill.green { background:#3fb950; }
+.bar-fill.yellow { background:#d2991d; }
+.bar-fill.red { background:#f85149; }
+.bar-num { font-size:15px; color:#e6edf3; font-weight:600; }
+
+</style>
+</head>
+<body>
+
+<div class="code-demo">
+    <div class="code-header">
+        <span class="code-badge">🤖 Agent spúšťa kód</span>
+        <span class="code-file">analyza_dat.py</span>
+    </div>
+    <div class="code-editor">
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
+
+<span class="cm"># Načítanie marketingových dát</span>
+df = pd.read_csv(<span class="str">'data/marketing.csv'</span>)
+
+<span class="cm"># Analýza konverzií podľa kanála</span>
+conv = df.groupby(<span class="str">'channel'</span>)[<span class="str">'conversions'</span>].sum()
+<span class="out"># channel</span>
+<span class="out"># email       1,247</span>
+<span class="out"># organic     3,891</span>
+<span class="out"># paid        2,103</span>
+<span class="out"># social        856</span>
+
+<span class="cm"># Vizualizácia</span>
+conv.plot(kind=<span class="str">'bar'</span>, title=<span class="str">'Konverzie podľa kanála'</span>)
+plt.savefig(<span class="str">'output/chart.png'</span>, dpi=<span class="num">150</span>)
+<span class="green">✅ Graf uložený → output/chart.png</span></pre>
+    </div>
+    <div class="code-output">
+        <div class="out-title">📊 Výstup:</div>
+        <div class="out-bars">
+            <div class="out-bar"><span class="bar-label">email</span><div class="bar-fill" style="width:280px;"></div><span class="bar-num">1,247</span></div>
+            <div class="out-bar"><span class="bar-label">organic</span><div class="bar-fill green" style="width:680px;"></div><span class="bar-num">3,891</span></div>
+            <div class="out-bar"><span class="bar-label">paid</span><div class="bar-fill yellow" style="width:400px;"></div><span class="bar-num">2,103</span></div>
+            <div class="out-bar"><span class="bar-label">social</span><div class="bar-fill red" style="width:180px;"></div><span class="bar-num">856</span></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<!-- duration: 40s -->
+<!-- note: Stĺpcový graf: manuálne 40h → s agentom 30h = −10h týždenne -->
+<title>L1 F4 – 10 hodín ušetrených</title>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+    background: #0d1117;
+    color: #c9d1d9;
+    width: 1920px; height: 1080px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+}
+
+
+.graph-card { width: 1200px; background:#161b22; border:1px solid #30363d; border-radius:16px; padding:48px; }
+.graph-title { font-size:32px; font-weight:700; color:#e6edf3; text-align:center; margin-bottom:40px; }
+.bars { display:flex; flex-direction:column; gap:32px; margin-bottom:48px; }
+.bar-group { display:flex; align-items:center; gap:20px; }
+.bar-label { width:140px; font-size:20px; color:#8b949e; text-align:right; }
+.bar-track { flex:1; height:32px; background:#0d1117; border-radius:6px; overflow:hidden; }
+.bar-fill { height:100%; border-radius:6px; }
+.bar-fill.red { background:linear-gradient(90deg,#f85149,#da3633); }
+.bar-fill.green { background:linear-gradient(90deg,#3fb950,#238636); }
+.bar-fill.blue { background:linear-gradient(90deg,#58a6ff,#1f6feb); }
+.bar-val { width:80px; font-size:20px; font-weight:700; }
+.bar-val.highlight { color:#58a6ff; }
+.stats { display:flex; justify-content:space-around; }
+.stat { text-align:center; color:#8b949e; font-size:18px; }
+.big { font-size:40px; font-weight:800; color:#e6edf3; display:block; }
+
+</style>
+</head>
+<body>
+
+<div class="graph-card">
+    <div class="graph-title">⏱️ 10 hodín týždenne ušetrených s Prime Agent</div>
+    <div class="bars">
+        <div class="bar-group">
+            <div class="bar-label">Manuálne</div>
+            <div class="bar-track"><div class="bar-fill red" style="width:380px;"></div></div>
+            <div class="bar-val">40 h</div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label">S Agentom</div>
+            <div class="bar-track"><div class="bar-fill green" style="width:290px;"></div></div>
+            <div class="bar-val">30 h</div>
+        </div>
+        <div class="bar-group">
+            <div class="bar-label">Ušetrené</div>
+            <div class="bar-track"><div class="bar-fill blue" style="width:100px;"></div></div>
+            <div class="bar-val highlight">−10 h</div>
+        </div>
+    </div>
+    <div class="stats">
+        <div class="stat"><span class="big">−25 %</span><br>času</div>
+        <div class="stat"><span class="big">+40 %</span><br>output</div>
+        <div class="stat"><span class="big">∞</span><br>škáluje</div>
+    </div>
+</div>
+
+</body>
+</html>

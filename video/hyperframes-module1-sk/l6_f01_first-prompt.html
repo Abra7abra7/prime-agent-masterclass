@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<!-- duration: 40s -->
+<!-- note: Prvý prompt a odpoveď agenta – vysvetlenie AI agent vs chatbot -->
+<title>L6 F1 – Prvý prompt</title>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+    background: #0d1117;
+    color: #c9d1d9;
+    width: 1920px; height: 1080px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+}
+
+
+.chat-card { width:1400px; background:#0d1117; border:1px solid #30363d; border-radius:14px; overflow:hidden; }
+.chat-header { display:flex; gap:8px; padding:14px 20px; background:#161b22; border-bottom:1px solid #30363d; }
+.chat-badge { padding:4px 10px; border-radius:5px; font-size:13px; font-weight:600; background:rgba(139,148,158,0.15); color:#8b949e; }
+.chat-badge.model-b { color:#3fb950; }
+.chat-badge.think { color:#d2991d; }
+.chat-body { padding:28px; display:flex; flex-direction:column; gap:20px; min-height:480px; }
+.msg { display:flex; gap:14px; align-items:flex-start; }
+.msg-avatar { font-size:36px; flex-shrink:0; }
+.msg-text { padding:16px 22px; border-radius:14px; font-size:18px; line-height:1.6; max-width:85%; }
+.msg.user .msg-text { background:#1f6feb; color:#fff; border-bottom-right-radius:4px; }
+.msg.agent .msg-text { background:#21262d; border:1px solid #30363d; color:#c9d1d9; border-bottom-left-radius:4px; }
+
+</style>
+</head>
+<body>
+
+<div class="chat-card">
+    <div class="chat-header">
+        <span class="chat-badge">deepseek</span>
+        <span class="chat-badge model-b">deepseek-v4-flash</span>
+        <span class="chat-badge think">thinking: medium</span>
+    </div>
+    <div class="chat-body">
+        <div class="msg user">
+            <div class="msg-avatar">👤</div>
+            <div class="msg-text">
+                Ahoj! Aké sú hlavné výhody používania AI agenta oproti klasickému chatbotovi?
+            </div>
+        </div>
+        <div class="msg agent">
+            <div class="msg-avatar">🤖</div>
+            <div class="msg-text">
+                <strong>AI agent ≠ chatbot.</strong> Tu sú kľúčové rozdiely:<br><br>
+                🔧 <strong>Nástroje a akcie:</strong> Agent spúšťa kód, číta súbory, volá API – nie len generuje text.<br>
+                💾 <strong>Pamäť:</strong> Pamätá si kontext naprieč sessionmi.<br>
+                🔁 <strong>Iterácia:</strong> Spustí kód → vidí výsledok → opraví chyby → skúša znova.<br>
+                🎯 <strong>Autonómia:</strong> Rozhoduje sa čo spraviť, v akom poradí.
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<!-- duration: 55s -->
+<!-- note: Tabuľka porovnania modelov s cenami, rýchlosťou, schopnosťami a odporúčaním -->
+<title>L5 F3 – Porovnanie modelov</title>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Menlo', monospace;
+    background: #0d1117;
+    color: #c9d1d9;
+    width: 1920px; height: 1080px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+}
+
+
+.compare-card { width:1550px; background:#161b22; border:1px solid #30363d; border-radius:16px; padding:40px; }
+.compare-title { font-size:30px; font-weight:700; color:#e6edf3; text-align:center; margin-bottom:28px; }
+.compare-table { width:100%; border-collapse:collapse; font-size:17px; }
+.compare-table th { background:#21262d; color:#58a6ff; padding:14px 16px; text-align:left; font-weight:600; border-bottom:2px solid #30363d; }
+.compare-table td { padding:13px 16px; border-bottom:1px solid #21262d; color:#c9d1d9; }
+.compare-table tr.highlight { background:rgba(31,111,235,0.08); }
+.compare-table tr.highlight td { color:#e6edf3; font-weight:500; }
+.fast { color:#3fb950; } .vfast { color:#3fb950; font-weight:700; } .mid { color:#d2991d; }
+.cheap { color:#3fb950; font-weight:700; }
+.rec { margin-top:24px; padding:16px 24px; background:rgba(63,185,80,0.1); border:1px solid #238636; border-radius:8px; font-size:19px; color:#c9d1d9; text-align:center; }
+.rec strong { color:#3fb950; }
+
+</style>
+</head>
+<body>
+
+<div class="compare-card">
+    <div class="compare-title">⚡ Porovnanie modelov pre Prime Agent</div>
+    <table class="compare-table">
+        <thead>
+            <tr><th>Model</th><th>Provider</th><th>Rýchlosť</th><th>Cena / 1M tok.</th><th>Kód</th><th>Reasoning</th><th>Best for</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>GPT-4o</td><td>OpenAI</td><td class="fast">⚡⚡⚡</td><td>$2.50 / $10</td><td>⭐⭐⭐</td><td>⭐⭐</td><td>Univerzál</td></tr>
+            <tr><td>Claude Sonnet 4</td><td>Anthropic</td><td class="fast">⚡⚡⚡</td><td>$3 / $15</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>Kód, architektúra</td></tr>
+            <tr class="highlight"><td>DeepSeek V4 Flash</td><td>DeepSeek</td><td class="vfast">⚡⚡⚡⚡</td><td class="cheap">$0.20 / $0.80</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>💎 Best value</td></tr>
+            <tr><td>Gemini 2.5 Flash</td><td>Google</td><td class="vfast">⚡⚡⚡⚡</td><td>$0.15 / $0.60</td><td>⭐⭐</td><td>⭐⭐</td><td>Dlhý context</td></tr>
+            <tr><td>Claude Opus 4</td><td>Anthropic</td><td class="mid">⚡⚡</td><td>$15 / $75</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>Komplexné úlohy</td></tr>
+        </tbody>
+    </table>
+    <div class="rec">🏆 Odporúčanie: <strong>DeepSeek V4 Flash</strong> – najlepší pomer cena/výkon pre každodennú prácu</div>
+</div>
+
+</body>
+</html>
