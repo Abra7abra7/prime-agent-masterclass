@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="sk" style="color-scheme: dark;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Successful – Agent Guild</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<style>
+.success-container { text-align: center; padding: 60px 24px; max-width: 800px; margin: 0 auto; }
+.success-icon { font-size: 4rem; margin-bottom: 24px; }
+h1 { margin-bottom: 16px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+    <div class="nav-links">
+      <a href="/">✦ <strong>Agent Guild</strong></a>
+      <a href="/kurz">Kurz</a>
+      <a href="/o-nas">O nás</a>
+      <a href="/faq">FAQ</a>
+      <a href="/blog">Blog</a>
+      <a href="/en" class="lang-switch">🇬🇧 EN</a>
+      <a href="/" class="lang-switch">🇸🇰 SK</a>
+    </div>
+  </div>
+</nav>
+
+<div class="success-container">
+  <div class="success-icon">✅</div>
+  <h1>Payment Successful!</h1>
+  <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 32px;">
+    Welcome to Agent Guild. You now have access to Prime Agent Masterclass.
+  </p>
+  <a href="/en/kurz/player" class="btn btn-primary">🎬 Start Course</a>
+</div>
+</body>
+</html>

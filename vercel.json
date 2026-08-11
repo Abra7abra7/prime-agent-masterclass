@@ -36,6 +36,22 @@
   ],
   "routes": [
     {
+      "src": "/kurz/success",
+      "dest": "/kurz/success.html"
+    },
+    {
+      "src": "/en/kurz/success",
+      "dest": "/en/kurz/success.html"
+    },
+    {
+      "src": "/kurz/player",
+      "dest": "/course-player.html"
+    },
+    {
+      "src": "/en/kurz/player",
+      "dest": "/course-player.html"
+    },
+    {
       "src": "^/sk(/.*)?$",
       "dest": "$1",
       "status": 302
