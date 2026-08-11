@@ -5,4 +5,8 @@ __pycache__/
 .DS_Store
 .env
 .env.local
-.vercel
+# Video output files - served via CDN
+video/output/
+video/node_modules/
+video/hyperframes-*/
+*.mp4
