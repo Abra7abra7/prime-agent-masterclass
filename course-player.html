@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="sk" style="color-scheme: dark;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kurz – Prime Agent Masterclass | Agent Guild</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<script src="/app.js" defer></script>
+<style>
+  .player-wrapper { max-width: 1200px; margin: 0 auto; padding: 24px; }
+  .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; }
+  .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  .lesson-list { margin-top: 24px; }
+  .lesson-item { padding: 12px 16px; cursor: pointer; border-radius: 8px; transition: all 0.2s; }
+  .lesson-item:hover { background: rgba(205,127,50,0.1); }
+  .lesson-item.active { background: rgba(205,127,50,0.2); border-left: 3px solid var(--bronze); }
+  @media (min-width: 768px) { .player-wrapper { display: flex; gap: 24px; } .video-section { flex: 2; } .lesson-list { flex: 1; margin-top: 0; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+    <div class="nav-links">
+      <a href="/">✦ <strong>Agent Guild</strong></a>
+      <a href="/kurz">Kurz</a>
+      <a href="/o-nas">O nás</a>
+      <a href="/faq">FAQ</a>
+      <a href="/blog">Blog</a>
+      <a href="/en" class="lang-switch">🇬🇧 EN</a>
+      <a href="/" class="lang-switch">🇸🇰 SK</a>
+    </div>
+  </div>
+</nav>
+
+<div class="player-wrapper">
+  <div class="video-section">
+    <h1 id="lesson-title">Prime Agent Masterclass</h1>
+    <div class="video-container">
+      <video id="course-video" controls autoplay>
+        <source src="" type="video/mp4">
+      </video>
+    </div>
+    <div id="lesson-description" style="margin-top: 16px; color: var(--text-dim);"></div>
+  </div>
+
+  <div class="lesson-list" id="lesson-list"></div>
+</div>
+
+<script>
+const R2_URL = 'https://pub-44d258089d6e47a6a793e7fef0659601.r2.dev';
+const COURSE_DATA = {"modules": [{"id": "module1", "title": "Úvod a inštalácia", "title_en": "Introduction & Installation", "lessons": [{"id": "lesson1", "title": "Čo je Prime Agent", "title_en": "What is Prime Agent"}, {"id": "lesson2", "title": "Agent vs Chatbot", "title_en": "Agent vs Chatbot"}, {"id": "lesson3", "title": "Inštalácia", "title_en": "Installation"}, {"id": "lesson4", "title": "Prvé spustenie", "title_en": "First Run"}, {"id": "lesson5", "title": "Nastavenie modelu", "title_en": "Model Setup"}, {"id": "lesson6", "title": "Prvý command", "title_en": "First Command"}]}, {"id": "module2", "title": "Prvé kroky s agentom", "title_en": "First Steps", "lessons": [{"id": "lesson1", "title": "Písanie promptov", "title_en": "Prompt Engineering"}, {"id": "lesson2", "title": "Práca so súbormi", "title_en": "Working with Files"}, {"id": "lesson3", "title": "Python a Bash", "title_en": "Python & Bash"}, {"id": "lesson4", "title": "Web search", "title_en": "Web Search"}, {"id": "lesson5", "title": "Praktický projekt", "title_en": "Practical Project"}]}]};
+
+let currentModule = 0;
+let currentLesson = 0;
+
+function loadLesson(modIdx, lesIdx) {
+  const mod = COURSE_DATA.modules[modIdx];
+  const les = mod.lessons[lesIdx];
+  currentModule = modIdx;
+  currentLesson = lesIdx;
+
+  document.getElementById('lesson-title').textContent = les.title;
+  document.getElementById('course-video').querySelector('source').src = 
+    R2_URL + '/videos/' + mod.id + '/' + les.id + '.mp4';
+  document.getElementById('course-video').load();
+  document.getElementById('course-video').play();
+
+  document.querySelectorAll('.lesson-item').forEach(el => el.classList.remove('active'));
+  document.querySelector(`[data-module="${modIdx}"][data-lesson="${lesIdx}"]`).classList.add('active');
+}
+
+function renderModules() {
+  const container = document.getElementById('lesson-list');
+  container.innerHTML = '';
+  COURSE_DATA.modules.forEach((mod, modIdx) => {
+    const modDiv = document.createElement('div');
+    modDiv.style.marginBottom = '16px';
+    const modTitle = document.createElement('h3');
+    modTitle.textContent = mod.title;
+    modTitle.style.marginBottom = '8px';
+    modTitle.style.fontSize = '1rem';
+    modDiv.appendChild(modTitle);
+
+    mod.lessons.forEach((les, lesIdx) => {
+      const item = document.createElement('div');
+      item.className = 'lesson-item' + (modIdx === 0 && lesIdx === 0 ? ' active' : '');
+      item.dataset.module = modIdx;
+      item.dataset.lesson = lesIdx;
+      item.innerHTML = `<span style="color: var(--bronze); font-size: 0.8rem;">${modIdx+1}.${lesIdx+1}</span> ${les.title}`;
+      item.onclick = () => loadLesson(modIdx, lesIdx);
+      modDiv.appendChild(item);
+    });
+    container.appendChild(modDiv);
+  });
+}
+
+renderModules();
+loadLesson(0, 0);
+</script>
+</body>
+</html>

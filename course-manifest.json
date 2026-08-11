@@ -1,0 +1,73 @@
+{
+  "modules": [
+    {
+      "id": "module1",
+      "title": "Úvod a inštalácia",
+      "title_en": "Introduction & Installation",
+      "lessons": [
+        {
+          "id": "lesson1",
+          "title": "Čo je Prime Agent",
+          "title_en": "What is Prime Agent"
+        },
+        {
+          "id": "lesson2",
+          "title": "Agent vs Chatbot",
+          "title_en": "Agent vs Chatbot"
+        },
+        {
+          "id": "lesson3",
+          "title": "Inštalácia",
+          "title_en": "Installation"
+        },
+        {
+          "id": "lesson4",
+          "title": "Prvé spustenie",
+          "title_en": "First Run"
+        },
+        {
+          "id": "lesson5",
+          "title": "Nastavenie modelu",
+          "title_en": "Model Setup"
+        },
+        {
+          "id": "lesson6",
+          "title": "Prvý command",
+          "title_en": "First Command"
+        }
+      ]
+    },
+    {
+      "id": "module2",
+      "title": "Prvé kroky s agentom",
+      "title_en": "First Steps",
+      "lessons": [
+        {
+          "id": "lesson1",
+          "title": "Písanie promptov",
+          "title_en": "Prompt Engineering"
+        },
+        {
+          "id": "lesson2",
+          "title": "Práca so súbormi",
+          "title_en": "Working with Files"
+        },
+        {
+          "id": "lesson3",
+          "title": "Python a Bash",
+          "title_en": "Python & Bash"
+        },
+        {
+          "id": "lesson4",
+          "title": "Web search",
+          "title_en": "Web Search"
+        },
+        {
+          "id": "lesson5",
+          "title": "Praktický projekt",
+          "title_en": "Practical Project"
+        }
+      ]
+    }
+  ]
+}

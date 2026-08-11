@@ -10,7 +10,7 @@ load_dotenv()
 ACCOUNT_ID = os.getenv('CLOUDFLARE_ACCOUNT_ID')
 ACCESS_KEY = os.getenv('CLOUDFLARE_R2_ACCESS_KEY_ID')
 SECRET_KEY = os.getenv('CLOUDFLARE_R2_SECRET_ACCESS_KEY')
-BUCKET = os.getenv('CLOUDFLARE_R2_BUCKET', 'prime-agent-courses')
+BUCKET = 'marianstancik-dev'
 ENDPOINT = os.getenv('CLOUDFLARE_R2_ENDPOINT')
 
 s3 = boto3.client('s3',

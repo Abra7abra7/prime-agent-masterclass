@@ -8,7 +8,7 @@ load_dotenv()
 
 R2_SECRET = os.getenv('CLOUDFLARE_R2_SECRET_ACCESS_KEY', '')
 ACCOUNT_ID = os.getenv('CLOUDFLARE_ACCOUNT_ID')
-BUCKET = os.getenv('CLOUDFLARE_R2_BUCKET', 'prime-agent-courses')
+BUCKET = 'marianstancik-dev'
 
 PLANS = {
     'founder':  {'name': 'Founder', 'videos': ['module1','module2'], 'months': 6},
@@ -42,3 +42,6 @@ def handle_payment(customer_email, price_id):
 
 if __name__ == '__main__':
     handle_payment('test@example.com', 'price_1U3IDHBrWAEI1HPaB0ifC24F')
+
+
+R2_PUBLIC_URL = "https://pub-44d258089d6e47a6a793e7fef0659601.r2.dev"
