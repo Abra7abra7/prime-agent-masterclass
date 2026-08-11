@@ -75,6 +75,17 @@ document.addEventListener('click', function(e) {
   }
 })();
 </script>
+<script>
+(function() {
+  if (sessionStorage.getItem('lang')) return;
+  var lang = navigator.language || navigator.userLanguage;
+  var path = window.location.pathname;
+  var skLangs = ['sk', 'sk-SK', 'cs', 'cs-CZ'];
+  if (skLangs.includes(lang) && path.startsWith('/en')) {
+    window.location.href = path.replace('/en', '') || '/';
+  }
+})();
+</script>
 </head>
 <body>
 <nav>
