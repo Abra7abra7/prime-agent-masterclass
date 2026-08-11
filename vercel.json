@@ -36,6 +36,14 @@
     {
       "src": "public/**/*",
       "use": "@vercel/static"
+    },
+    {
+      "src": "*.md",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*/*.md",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -133,16 +141,20 @@
       "dest": "/affiliate/index.html"
     },
     {
-      "src": "/(.*)",
-      "dest": "/$1"
-    },
-    {
       "src": "/(.*)\\.js",
       "dest": "/$1.js"
     },
     {
+      "src": "/(.*)\\.md",
+      "dest": "/$1.md"
+    },
+    {
+      "src": "/public/(.*)",
+      "dest": "/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/public/$1"
+      "dest": "/$1"
     }
   ],
   "headers": [
@@ -169,6 +181,15 @@
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.md",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
         }
       ]
     }

@@ -1,3 +1,5 @@
+# Agent Guild — Prime Agent Masterclass (Full Content)
+
 # Agent Guild — Prime Agent Masterclass
 
 > Build your AI army. 8-module video course teaching autonomous AI agents with Prime Agent.
@@ -51,3 +53,14 @@
 
 - Agent Guild Community (Skool)
 - Twitter: @agentguild
+
+
+## Full Course Description
+
+Prime Agent Masterclass is an 8-module video course that teaches entrepreneurs, freelancers, and developers how to build and deploy autonomous AI agents using Prime Agent. The course covers installation, configuration, skills, sub-agents, marketing automation, sales automation, production deployment, and advanced topics.
+
+Each module contains 5-6 video lessons with practical projects and templates. The course is available in Slovak and English.
+
+## Contact
+
+For inquiries: ascentia@agentmail.to
