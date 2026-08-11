@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A1628"/>
+      <stop offset="100%" style="stop-color:#002147"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="600" y="250" font-family="Inter, sans-serif" font-size="64" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">AGENT GUILD</text>
+  <text x="600" y="330" font-family="Inter, sans-serif" font-size="28" font-weight="300" fill="#CD7F32" text-anchor="middle" letter-spacing="8" font-style="italic">BUILD YOUR AI ARMY</text>
+  <text x="600" y="420" font-family="Inter, sans-serif" font-size="20" fill="#8888a0" text-anchor="middle">Prime Agent Masterclass</text>
+  <polygon points="600,100 605,120 620,120 608,132 612,148 600,140 588,148 592,132 580,120 595,120" fill="#CD7F32"/>
+</svg>
