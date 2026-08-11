@@ -194,9 +194,22 @@ document.addEventListener('click', function(e) {
 (function() {
   if (sessionStorage.getItem('lang')) return;
   var lang = navigator.language || navigator.userLanguage;
+  var path = window.location.pathname;
+
+  // Redirect /sk/ paths to root
+  if (path.startsWith('/sk/') || path === '/sk') {
+    window.location.href = path.replace('/sk', '') || '/';
+    return;
+  }
+
+  // Redirect English users to /en/
   var enLangs = ['en', 'en-US', 'en-GB', 'en-AU', 'en-CA', 'en-IN', 'en-PH', 'en-SG'];
-  if (enLangs.includes(lang) && !window.location.pathname.startsWith('/en')) {
-    window.location.href = '/en' + window.location.pathname;
+  var skLangs = ['sk', 'sk-SK', 'cs', 'cs-CZ'];
+
+  if (enLangs.includes(lang) && !path.startsWith('/en')) {
+    window.location.href = '/en' + path;
+  } else if (skLangs.includes(lang) && path.startsWith('/en')) {
+    window.location.href = path.replace('/en', '') || '/';
   }
 })();
 </script>
